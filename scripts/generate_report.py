@@ -8,17 +8,17 @@ TODAY_SLUG = TODAY.strftime("%Y-%m-%d")
 TODAY_LONG = TODAY.strftime("%B %d, %Y")
 
 SEARCH_QUERIES = [
-    f"GTA 6 news {TODAY_SLUG} official Rockstar",
-    f"GTA 6 leak rumor {TODAY.strftime('%B %Y')}",
-    "GTA 6 reddit community latest discussion",
+    f"GTA VI news {TODAY_SLUG} official Rockstar",
+    f"GTA VI leak rumor {TODAY.strftime('%B %Y')}",
+    "GTA VI reddit community latest discussion",
     "Grand Theft Auto VI release date trailer announcement",
-    "GTA 6 Take-Two Interactive update",
+    "GTA VI Take-Two Interactive update",
 ]
 
-SYSTEM_PROMPT = """You are a GTA 6 news reporter. Compile a structured daily report in English based on web search results.
+SYSTEM_PROMPT = """You are a GTA VI news reporter. Compile a structured daily report in English based on web search results.
 
 RULES:
-- Only report on GTA 6 / Grand Theft Auto VI. Ignore all other games.
+- Only report on GTA VI / Grand Theft Auto VI. Ignore all other games.
 - Clearly distinguish confirmed official news from unverified leaks/rumors.
 - Include publication date and source URL for every item.
 - Be factual and concise.
@@ -91,7 +91,7 @@ def generate_report(search_results: list[dict]) -> str:
                 "content": (
                     f"Today is {TODAY_LONG}.\n\n"
                     f"Search results:\n\n{search_text}\n\n"
-                    "Generate the daily GTA 6 report."
+                    "Generate the daily GTA VI report."
                 ),
             }
         ],
@@ -112,11 +112,11 @@ def save_report(content: str) -> None:
 
     frontmatter = (
         f"---\n"
-        f'title: "GTA 6 Daily Report — {TODAY_LONG}"\n'
+        f'title: "GTA VI Daily Report — {TODAY_LONG}"\n'
         f'date: "{TODAY_SLUG}"\n'
-        f'excerpt: "Daily coverage of the latest GTA 6 news, leaks, and community highlights."\n'
+        f'excerpt: "Daily coverage of the latest GTA VI news, leaks, and community highlights."\n'
         f"---\n\n"
-        f"# GTA 6 Daily Report — {TODAY_LONG}\n\n"
+        f"# GTA VI Daily Report — {TODAY_LONG}\n\n"
     )
 
     with open(filepath, "w", encoding="utf-8") as f:
@@ -127,7 +127,7 @@ def save_report(content: str) -> None:
 
 if __name__ == "__main__":
     ts = datetime.now(timezone.utc).isoformat()
-    print(f"[{ts}] Starting GTA 6 report generation for {TODAY_SLUG}...")
+    print(f"[{ts}] Starting GTA VI report generation for {TODAY_SLUG}...")
 
     print("Searching the web...")
     results = search_news()
