@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+body {
+  background-color: #0a0a0f;
+  color: #e2e2e2;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.prose-gta h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f5c518;
+  border-left: 3px solid #f5c518;
+  padding-left: 0.75rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-gta h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c9d1d9;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-gta p {
+  line-height: 1.75;
+  margin-bottom: 0.875rem;
+  color: #d1d5db;
+}
+
+.prose-gta a {
+  color: #f5c518;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-gta a:hover {
+  color: #ffffff;
+}
+
+.prose-gta strong {
+  color: #f3f4f6;
+  font-weight: 600;
+}
+
+.prose-gta em {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.prose-gta ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.875rem;
+}
+
+.prose-gta li {
+  margin-bottom: 0.25rem;
+  color: #d1d5db;
+}
+
+.prose-gta ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 0.875rem;
+}
+
+.prose-gta hr {
+  border-color: #1e1e2e;
+  margin: 2rem 0;
+}
+
+.prose-gta blockquote {
+  border-left: 3px solid #e63946;
+  padding-left: 1rem;
+  color: #6b7280;
+  font-style: italic;
+  margin: 1rem 0;
+}
