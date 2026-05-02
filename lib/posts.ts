@@ -6,11 +6,25 @@ import html from 'remark-html'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
+const TAG_RULES: { tag: string; pattern: RegExp }[] = [
+  { tag: 'official',     pattern: /\b(rockstar|official|announcement|confirmed|take-two)\b/i },
+  { tag: 'leak',         pattern: /\b(leak|leaked|insider|datamine)\b/i },
+  { tag: 'gameplay',     pattern: /\b(gameplay|trailer|footage|screenshot|demo)\b/i },
+  { tag: 'rumor',        pattern: /\b(rumou?r|allegedly|reportedly|unconfirmed)\b/i },
+  { tag: 'release date', pattern: /\b(release date|launch date|launch window|november)\b/i },
+  { tag: 'online',       pattern: /\b(online|multiplayer|gta online)\b/i },
+]
+
+function detectTags(content: string): string[] {
+  return TAG_RULES.filter((r) => r.pattern.test(content)).map((r) => r.tag)
+}
+
 export interface PostMeta {
   slug: string
   title: string
   date: string
   excerpt: string
+  tags: string[]
 }
 
 export interface Post extends PostMeta {
@@ -33,6 +47,7 @@ export function getAllPosts(): PostMeta[] {
         title: data.title as string,
         date: data.date as string,
         excerpt: data.excerpt as string,
+        tags: (data.tags as string[] | undefined) ?? detectTags(fileContents),
       }
     })
 
